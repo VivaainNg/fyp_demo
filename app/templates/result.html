@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block js_modules %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block title %}Result{% endblock %}
+
+{% block content %}
+
+    <p>
+        <button type="button"
+        onclick="window.location.href='/';">
+        BACK</button>
+    
+    </p>
+
+
+    <div id="mainCharts" class="floatLeft">
+            <table border="1" align="center">
+                <!--MIL-->
+                <tr>
+                    <td align="center"><h2>MIL</h2></td>
+                    <td width="200">
+                        Graph of video's frame count against predicted scores
+                    </td>
+                    <td><img src="{{ fig_mil }}" width="600"/></td>
+                </tr>
+        
+                <!--TAL-->
+                <tr>
+                    <td align="center" rowspan="5"><h2>TAL</h2></td>
+                    <td>Ground Truth</td>
+                    <td><img src="{{ tal_gt }}" width="600"/></td>
+                </tr>
+        
+                <tr>
+                    <td>BOTH ({{ class_both }})</td>
+                    <td><img src="{{ fig_tal_both }}" width="600"/></td>
+                </tr>
+
+                <tr>
+                    <td>FLOW ({{ class_flow }})</td>
+                    <td><img src="{{ fig_tal_flow }}" width="600"/></td>
+                </tr>
+
+                <tr>
+                    <td>LATE-FUSION ({{ class_late_fusion }})</td>
+                    <td><img src="{{ fig_tal_late_fusion }}" width="600"/></td>
+                </tr>
+        
+                <tr>
+                    <td>RGB ({{ class_rgb }})</td>
+                    <td><img src="{{ fig_tal_rgb }}" width="600"/></td>
+                </tr>
+
+                <!--video info-->
+                <tr>
+                    <td colspan="2">{{ videoname }}</td>
+                    <td>
+                    </td>
+                </tr>
+            </table> 
+    </div>
+    
+
+    <div class="floatRight">
+        <!--Start and end time frame for GT-->
+        <p>
+            {% for table in gt_df_display %}
+                {{ table|safe }}
+            {% endfor %}
+        </p>
+
+        <!--Start and end time frame for predicted actions-->
+        <p>
+            {% for table in predict_df_display %}
+                {{ table|safe }}
+            {% endfor %}
+        </p>
+
+        
+    </div>
+
+    <div class = 'input_wrapper'>
+        <input type="range" min="0" max="{{ frame_cnt }}"
+            value="0" class="slider" id="slider_id" >
+        <p>
+            <input type="button" onclick="show_video()" value="Load Video" />
+        </p>
+        Frame Number: <strong><span id="show_slider_val"></span></strong>                  
+    </div>
+    
+    <!--Canvas to display video-->
+    <p>
+        <center width="320" height="240">
+            <img src=""  id="vid_canvas">   
+        </center>
+            
+    </p>
+    
+    <script>
+        var selected_frame_num = document.getElementById("slider_id");
+        function show_video() {          
+            document.getElementById(
+                'vid_canvas').src = "/get_frame_num?frame_num=" 
+                + selected_frame_num.value
+                + "&random=" 
+                + new Date().getTime();
+        }
+
+        //Display slider position
+        var show = document.getElementById("show_slider_val");
+        show.innerHTML = selected_frame_num.value;
+        selected_frame_num.oninput = function() {
+            show.innerHTML = this.value;
+        }
+    </script>
+
+          
+{% endblock %}
+
+
