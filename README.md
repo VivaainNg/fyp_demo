@@ -14,6 +14,6 @@ Enter the command: ```flask run``` to jumpstart the web services.
 
 #### To-Do List:
 
-- [] Push conda env configurations to run this repo.
-- [] Implement Bootstrap 4.
+- [ ] Push conda env configurations to run this repo.
+- [ ] Implement Bootstrap 4.
 - [x] Segregate js/css assets out from HTML templates.
