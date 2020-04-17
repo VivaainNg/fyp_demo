@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <center>
                     <p>
-                        <button type="button"
+                        <button type="button" class="btn btn-primary"
                             onclick="window.location.href='/';">
                             BACK
                         </button> 
@@ -74,10 +74,11 @@
                 <!--Slider controller for video-->
                 <div class = 'input_wrapper'>
                     <p>
+                        <input type="button" onclick="show_video()" class="btn btn-primary" value="Load Video" />
+                    </p>
+                    <p>
                         <input type="range" min="0" max="{{ frame_cnt }}"
-                        value="0" class="custom-range" id="slider_id" >
-                    
-                        <input type="button" onclick="show_video()" value="Load Video" />
+                        value="0" class="form-control-range" id="slider_id" >  
                     </p>
                     Frame Number: <strong><span id="show_slider_val"></span></strong>                  
                 </div>

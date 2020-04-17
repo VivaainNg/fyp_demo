@@ -5,8 +5,10 @@
 
 {% block content %}
     <form method="POST" action="/get_result" 
-    enctype=multipart/form-data>
-        <p><input type="file" name="cas_file"></p>
-        <p><input type="submit" value="submit"></p>
+    enctype=multipart/form-data class="upload-file">
+        <center>
+            <p><input type="file" name="cas_file"></p>
+            <p><input type="submit" value="submit" class="btn btn-primary"></p>
+        </center>
     </form>
 {% endblock %}
