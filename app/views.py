@@ -95,7 +95,6 @@ def get_result():
 
 
     api_response = {
-        'videoname': videoname,
         'modality': modality,
         'video_path': video_path,
         'fig_mil': milImageB64String,
