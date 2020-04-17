@@ -73,9 +73,10 @@
                 
                 <!--Slider controller for video-->
                 <div class = 'input_wrapper'>
-                    <input type="range" min="0" max="{{ frame_cnt }}"
-                        value="0" class="slider" id="slider_id" >
                     <p>
+                        <input type="range" min="0" max="{{ frame_cnt }}"
+                        value="0" class="custom-range" id="slider_id" >
+                    
                         <input type="button" onclick="show_video()" value="Load Video" />
                     </p>
                     Frame Number: <strong><span id="show_slider_val"></span></strong>                  
@@ -83,15 +84,17 @@
                     
                 
                 <div class="floatRight">
-                    <!--Start and end time frame for GT-->
+                    <!--Start and end time frame for GT-->                   
                     <p>
+                        <strong>Ground Truth</strong>
                         {% for table in gt_df_display %}
                             {{ table|safe }}
                         {% endfor %}
                     </p>
             
-                    <!--Start and end time frame for predicted actions-->
+                    <!--Start and end time frame for predicted actions-->                   
                     <p>
+                        <strong>Localized predictions</strong>
                         {% for table in predict_df_display %}
                             {{ table|safe }}
                         {% endfor %}
