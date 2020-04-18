@@ -85,21 +85,19 @@
                     
                 
                 <div class="floatRight">
+                    <hr>
                     <!--Start and end time frame for GT-->                   
-                    <p>
-                        <strong>Ground Truth</strong>
-                        {% for table in gt_df_display %}
-                            {{ table|safe }}
-                        {% endfor %}
-                    </p>
+                    <strong>Ground Truth</strong>
+                    {% for table in gt_df_display %}
+                        {{ table|safe }}
+                    {% endfor %}
             
+                    <hr>
                     <!--Start and end time frame for predicted actions-->                   
-                    <p>
-                        <strong>Localized predictions</strong>
-                        {% for table in predict_df_display %}
-                            {{ table|safe }}
-                        {% endfor %}
-                    </p>        
+                    <strong>Localized predictions</strong>
+                    {% for table in predict_df_display %}
+                        {{ table|safe }}
+                    {% endfor %}       
                 </div>
 
 
