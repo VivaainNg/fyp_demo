@@ -12,11 +12,6 @@ Key in ```set FLASK_APP=run.py```.
 Enter the command: ```flask run``` to jumpstart the web services.
 
 
-## Sample run
-
-<video loop>
-    <source src="https://i.imgur.com/IG5CX4w.mp4" type="video/mp4">
-</video>
 
 
 #### To-Do List:
