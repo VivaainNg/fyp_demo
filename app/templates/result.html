@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <div class="container-fluid">
+    <div class="container-fluid d-flex flex-column grow">
         <div class="row">
             <div class="col-md-12">
                 <center>
@@ -104,6 +104,10 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <center>Powered by Flask</center>
+    </footer>
     
     
     <script src="{{ url_for('static', filename='js/manipulate_vid.js') }}">
